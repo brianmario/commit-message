@@ -23,7 +23,7 @@ class ViewController: NSViewController {
       do {
         commitMessageTemplate = try String(contentsOfFile: CommandLine.arguments[1]).components(separatedBy: NSCharacterSet.newlines)
       } catch {
-        print("error loading file")
+        print("Error loading file: \(error).")
       }
 
       subjectField.stringValue = commitMessageTemplate[0]

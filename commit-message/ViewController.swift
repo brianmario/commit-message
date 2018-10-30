@@ -28,7 +28,7 @@ class ViewController: NSViewController {
 
       subjectField.stringValue = commitMessageTemplate[0]
 
-      bodyField.stringValue = commitMessageTemplate[1...].joined()
+      bodyField.stringValue = commitMessageTemplate[1...].joined(separator: "\n").trimmingCharacters(in: NSCharacterSet.newlines)
     }
   }
 

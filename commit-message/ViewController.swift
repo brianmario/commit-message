@@ -9,11 +9,27 @@
 import Cocoa
 
 class ViewController: NSViewController {
+  @IBOutlet weak var subjectField: NSTextField!
+  @IBOutlet weak var bodyField: NSTextField!
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    // Do any additional setup after loading the view.
+    if (CommandLine.arguments.count > 1) {
+      // We'll just assume CommandLine.arguments[1] is the commit message file we need to edit.
+
+      var commitMessageTemplate: [String] = [""]
+
+      do {
+        commitMessageTemplate = try String(contentsOfFile: CommandLine.arguments[1]).components(separatedBy: NSCharacterSet.newlines)
+      } catch {
+        print("error loading file")
+      }
+
+      subjectField.stringValue = commitMessageTemplate[0]
+
+      bodyField.stringValue = commitMessageTemplate[1...].joined()
+    }
   }
 
   override var representedObject: Any? {

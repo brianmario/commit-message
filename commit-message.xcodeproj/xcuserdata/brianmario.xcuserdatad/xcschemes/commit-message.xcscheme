@@ -63,7 +63,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "/Users/brianmario/Downloads/template"
+            argument = "message-template.txt"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
